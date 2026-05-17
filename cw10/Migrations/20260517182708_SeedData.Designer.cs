@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cw10.Data;
 
@@ -11,9 +12,11 @@ using cw10.Data;
 namespace cw10.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260517182708_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +42,9 @@ namespace cw10.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(300)
@@ -59,6 +65,7 @@ namespace cw10.Migrations
                             ComponentManufacturerId = 4,
                             ComponentTypeId = 1,
                             Description = "10920X, 3.5GHz, Socket 2066, 12 cores, 20MB cache",
+                            Id = 0,
                             Name = "Intel Core i9"
                         },
                         new
@@ -67,6 +74,7 @@ namespace cw10.Migrations
                             ComponentManufacturerId = 1,
                             ComponentTypeId = 2,
                             Description = "XT Prime 16GB OC",
+                            Id = 0,
                             Name = "Asus Radeon RX 9070"
                         },
                         new
@@ -75,6 +83,7 @@ namespace cw10.Migrations
                             ComponentManufacturerId = 3,
                             ComponentTypeId = 3,
                             Description = "32GB DDR4, 2666MHz, 9th gen, 260-pin SO-DIMM",
+                            Id = 0,
                             Name = "MSI Trident 3"
                         });
                 });
