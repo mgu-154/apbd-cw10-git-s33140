@@ -97,7 +97,7 @@ public class DbService : IDbService
         };
     }
 
-    public async Task<GetPcDto> UpdatePc(UpdatePcDto pcDto)
+    public async Task<GetPcDto> UpdatePc(int id, UpdatePcDto pcDto)
     {
         var pc = await _dbContext.Pcs.FirstOrDefaultAsync(e => e.Id == pcDto.Id);
         

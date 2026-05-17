@@ -8,6 +8,6 @@ public interface IDbService
     Task<IEnumerable<GetPcDto>> GetAllPcs();
     Task<GetPcComponentsDetailsDto> GetComponents(int id);
     Task<GetPcDto> CreatePc(CreatePcDto pcDto);
-    Task<GetPcDto> UpdatePc(UpdatePcDto pcDto);
+    Task<GetPcDto> UpdatePc(int id, UpdatePcDto pcDto);
     Task DeletePc(int id);
 }
